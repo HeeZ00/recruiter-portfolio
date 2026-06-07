@@ -37,6 +37,10 @@
       -webkit-font-smoothing:antialiased;
       overflow-x:hidden;
       position:relative;
+      -webkit-user-select:none;
+      -moz-user-select:none;
+      -ms-user-select:none;
+      user-select:none;
     }
     body::before {
       content:"";
@@ -72,7 +76,7 @@
       border-bottom:1px solid var(--line-soft);
     }
     .nav-inner { display:flex; align-items:center; justify-content:space-between; height:68px; }
-    .brand { font-family:var(--display); font-weight:600; font-size:1.15rem; letter-spacing:-.01em; }
+    .brand { font-family:var(--body); font-weight:600; font-size:1.15rem; letter-spacing:-.01em; }
     .brand .tag {
       font-family:var(--body);
       font-size:.7rem;
@@ -137,8 +141,8 @@
       color:var(--accent);
     }
     .hero-title .role {
-      font-family:var(--display);
-      font-weight:600;
+      font-family:var(--body);
+      font-weight:780;
       color:var(--ink);
       letter-spacing:-.02em;
       white-space:nowrap;
@@ -170,9 +174,9 @@
 
     section.block { padding:58px 0; position:relative; }
     .sec-head { display:flex; align-items:baseline; gap:18px; margin-bottom:32px; }
-    .sec-index { font-family:var(--display); font-size:.95rem; color:var(--accent); font-weight:700; letter-spacing:.08em; }
+    .sec-index { font-family:var(--body); font-size:.95rem; color:var(--accent); font-weight:700; letter-spacing:.08em; }
     .sec-title {
-      font-family:var(--display);
+      font-family:var(--body);
       font-size:clamp(1.7rem,3.4vw,2.45rem);
       font-weight:500;
       letter-spacing:-.02em;
@@ -239,14 +243,16 @@
       margin-bottom:8px;
     }
     .skill-card h3 {
-      font-family:var(--display);
-      font-size:1.22rem;
-      font-weight:500;
+      font-family:var(--body);
+      font-size:clamp(1.12rem,1.75vw,1.34rem);
       line-height:1.25;
-      margin-bottom:10px;
+      letter-spacing:-.045em;
+      margin:0;
+      white-space:nowrap;
+      word-break:keep-all;
     }
     .skill-card p { font-size:.93rem; color:var(--ink-soft); }
-    .skill-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:14px; }
+    .skill-tags { display:flex; flex-wrap:wrap; gap:7px; margin:12px 0 14px; }
     .tag {
       font-size:.74rem;
       padding:5px 11px;
@@ -264,7 +270,7 @@
       transition:border-color .3s,box-shadow .3s;
     }
     .case:hover { border-color:var(--accent); box-shadow:0 16px 38px rgba(33,28,22,.06); }
-    .case-head { display:flex; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:8px; }
+    .case-head { margin-bottom:0; }
     .case-tag {
       font-size:.72rem;
       letter-spacing:.12em;
@@ -273,12 +279,15 @@
       font-weight:800;
     }
     .case h3 {
-      font-family:var(--display);
+      font-family:var(--body);
       font-size:1.34rem;
-      font-weight:500;
-      line-height:1.25;
+      font-weight:700;
+      letter-spacing:-.035em;
+      line-height:1.28;
+      margin:0;
+      word-break:keep-all;
     }
-    .case-lead { font-size:.97rem; color:var(--ink-soft); margin:8px 0 16px; }
+    .case-lead { font-size:.97rem; color:var(--ink-soft); margin:0 0 16px; }
     .case ul { list-style:none; }
     .case li {
       position:relative;
@@ -312,7 +321,7 @@
       border-radius:7px;
       margin-bottom:9px;
     }
-    .project-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+    .project-tags { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 16px; }
     .project-tags span {
       font-size:.76rem;
       padding:6px 11px;
@@ -329,17 +338,29 @@
     }
     details.case-more summary {
       cursor:pointer;
-      font-size:.9rem;
+      width:max-content;
+      max-width:100%;
+      font-size:.86rem;
       font-weight:800;
       color:var(--accent);
       list-style:none;
-      display:flex;
+      display:inline-flex;
       align-items:center;
       gap:7px;
+      padding:8px 13px;
+      border:1px solid rgba(89,100,216,.24);
+      border-radius:999px;
+      background:rgba(231,228,255,.55);
+      transition:background .2s, transform .2s, border-color .2s;
+    }
+    details.case-more summary:hover {
+      background:rgba(231,228,255,.9);
+      border-color:rgba(89,100,216,.42);
+      transform:translateY(-1px);
     }
     details.case-more summary::-webkit-details-marker { display:none; }
-    details.case-more summary::before { content:"+"; font-size:1.05rem; width:14px; text-align:center; }
-    details.case-more[open] summary::before { content:"–"; }
+    details.case-more summary::after { content:"↓"; font-size:.78rem; line-height:1; }
+    details.case-more[open] summary::after { content:"↑"; }
     .case-more-body { margin-top:13px; }
     .mpr {
       margin-bottom:11px;
@@ -411,7 +432,7 @@
     .score-card b {
       display:block;
       color:var(--accent);
-      font-family:var(--display);
+      font-family:var(--body);
       font-size:1.18rem;
       margin-top:2px;
     }
@@ -522,7 +543,7 @@
       font-weight:800;
     }
     .contact h2 {
-      font-family:var(--display);
+      font-family:var(--body);
       font-weight:400;
       font-size:clamp(1.9rem,4.4vw,3rem);
       line-height:1.1;
@@ -593,6 +614,11 @@
       .clink { border-color:var(--line); }
       details.case-more .case-more-body { display:block; }
     }
+  
+    @media (max-width: 860px) {
+      .skill-card h3 { white-space:normal; }
+    }
+
   </style>
 </head>
 
@@ -691,36 +717,36 @@
 
       <div class="skills-grid">
         <div class="skill-card reveal">
-          <span class="label">01 · Strategy</span>
+          <span class="label">01 · 채용 방향 설계</span>
           <h3>성장 단계에 맞춘 채용 전략</h3>
-          <p>조직의 성장 속도와 팀의 문제를 이해하고, 지금 필요한 인재상과 채용 방식을 함께 설계합니다.</p>
           <div class="skill-tags">
             <span class="tag">인재상 정의</span>
             <span class="tag">직무별 채널 전략</span>
             <span class="tag">신규 직무 채용</span>
           </div>
+          <p>조직의 성장 속도에 맞춰 팀의 상황을 들여다보고, 적재적소에 필요한 인재를 채용하기 위해 채용 방식을 함께 설계합니다.</p>
         </div>
 
         <div class="skill-card reveal">
-          <span class="label">02 · Operations</span>
+          <span class="label">02 · 운영 체계</span>
           <h3>채용 운영 체계화</h3>
-          <p>수기 운영에서 발생하는 누락과 지연을 자동화, ATS 도입, 프로세스 표준화로 개선합니다.</p>
           <div class="skill-tags">
             <span class="tag">ATS 도입</span>
             <span class="tag">프로세스 표준화</span>
             <span class="tag">운영 리스크 개선</span>
           </div>
+          <p>수기 운영에서 발생하는 누락과 지연을 자동화와 ATS 도입으로 줄이고, 채용 프로세스를 표준화하며 운영 리스크를 지속적으로 개선해왔습니다.</p>
         </div>
 
         <div class="skill-card reveal">
-          <span class="label">03 · Decision</span>
+          <span class="label">03 · 평가 기준</span>
           <h3>데이터와 기준에 기반한 채용 개선</h3>
-          <p>채널 성과와 전형 데이터를 정리하고, 하이어링 매니저와 평가 기준을 맞춰 더 일관된 채용 운영을 돕습니다.</p>
           <div class="skill-tags">
             <span class="tag">채널 분석</span>
             <span class="tag">전형 병목 개선</span>
-            <span class="tag">MUST·PLUS·RISK</span>
+            <span class="tag">평가 기준 정렬</span>
           </div>
+          <p>채널 성과와 전형 데이터를 정리하고, 하이어링 매니저와 평가 기준을 맞춰 더 핏한 인재를 채용할 수 있는 방식을 함께 고민하고 적용해왔습니다.</p>
         </div>
       </div>
     </div>
@@ -738,18 +764,25 @@
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Operations · ATS</span>
             <h3>채용 운영 시스템화 & ATS 전사 도입</h3>
           </div>
+
+          <div class="project-tags">
+            <span>ATS 전사 도입</span>
+            <span>하이어링 매니저 사용성 검증</span>
+            <span>개인정보 리스크 개선</span>
+            <span>후보자 취합 공수 감소</span>
+          </div>
           <p class="case-lead">
-            수기 기반 채용 운영에서 발생하던 <b>누락·지연·개인정보 리스크</b>를 발견하고,
-            단위 자동화를 거쳐 나인하이어 ATS 도입을 제안·검증·운영했습니다.
+            수기 운영에서 발생하던 <b>누락·지연 문제</b>를 Google Apps Script 기반 자동화로 먼저 개선하고,
+            이후 단위 자동화로 해결되지 않는 데이터 분산·평가 이력·개인정보 리스크를 확인해 나인하이어 ATS 도입을 제안·검증·운영했습니다.
           </p>
 
           <div class="phase">
             <span class="phase-label">STEP 1 · 문제 발견</span>
             <ul>
               <li>스프레드시트 기반 운영에서 <b>지원자 상태 누락·결과 안내 지연 리스크</b> 발견</li>
+              <li>채널별 이력서 수기 다운로드·업로드와 후보자 취합 과정에서 반복 업무 발생</li>
               <li>후보자 평가 결과가 Slack·Notion에 분산되어 <b>개인정보 노출 위험</b> 존재</li>
               <li>하이어링 매니저에게 후보자 정보를 취합·전달하는 데 <b>약 1시간 소요</b></li>
             </ul>
@@ -758,15 +791,15 @@
           <div class="phase">
             <span class="phase-label">STEP 2 · 단위 개선</span>
             <ul>
-              <li>반복 업무를 줄이기 위해 채용 운영 프로세스를 정리하고 일부 업무를 자동화</li>
-              <li>공수는 줄였지만, <b>데이터 통합·평가 이력 관리에는 한계</b>가 있음을 확인</li>
+              <li>Google Apps Script 기반 자동화로 반복 업무와 알림 프로세스를 1차 개선</li>
+              <li>단위 자동화만으로는 <b>데이터 통합·평가 이력 관리·개인정보 리스크</b> 해결에 한계가 있음을 확인</li>
             </ul>
           </div>
 
           <div class="phase">
             <span class="phase-label">STEP 3 · 도입 검증</span>
             <ul>
-              <li>ATS 도입을 제안하고, 바로 도입하지 않고 <b>1주 데모 운영</b>으로 사용성 검증</li>
+              <li>나인하이어 ATS 도입을 제안하고, 바로 도입하지 않고 <b>1주 데모 운영</b>으로 사용성 검증</li>
               <li>하이어링 매니저 대상 <b>14문항 만족도 조사</b>와 인터뷰로 실제 업무 적합성 확인</li>
             </ul>
           </div>
@@ -781,7 +814,7 @@
           </div>
 
           <details class="case-more">
-            <summary>ATS 도입 검증 과정 보기</summary>
+            <summary>펼쳐보기 · ATS 도입 검증 과정</summary>
             <div class="case-more-body">
               <div class="detail-block">
                 <h4>도입 전 문제</h4>
@@ -845,19 +878,19 @@
               </div>
             </div>
           </details>
-
-          <div class="project-tags">
-            <span>ATS 전사 도입</span>
-            <span>하이어링 매니저 사용성 검증</span>
-            <span>개인정보 리스크 개선</span>
-            <span>후보자 취합 공수 감소</span>
-          </div>
         </article>
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Branding · Candidate Experience</span>
             <h3>채용 브랜딩 & 후보자 경험 재설계</h3>
+          </div>
+
+          <div class="project-tags">
+            <span>후보자 경험 설계</span>
+            <span>팀 인터뷰 콘텐츠 7건</span>
+            <span>오픈채팅방 25명</span>
+            <span>커피챗 7명</span>
+            <span>입사 1명</span>
           </div>
           <p class="case-lead">
             JD만으로는 전달하기 어려운 조직·직무 정보를 콘텐츠와 대화 채널로 보완해,
@@ -890,31 +923,12 @@
               <li><b>오픈채팅방 25명 → 커피챗 7명 → 입사 1명</b></li>
             </ul>
           </div>
-
-          <div class="project-tags">
-            <span>후보자 경험 설계</span>
-            <span>팀 인터뷰 콘텐츠 7건</span>
-            <span>오픈채팅방 25명</span>
-            <span>커피챗 7명</span>
-            <span>입사 1명</span>
-          </div>
         </article>
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Role Design · Sourcing</span>
             <h3>신규 직무 채용 — 테크니컬 PD</h3>
           </div>
-          <p class="case-lead">
-            정의와 인재풀이 명확하지 않았던 웹툰 프롬프터 포지션을 <b>테크니컬 PD</b>로 재정의하고,
-            JD·전형 기준·후보자 설득 채널을 직접 설계해 총 <b>2명</b>을 채용했습니다.
-          </p>
-          <ul>
-            <li>웹툰 프롬프터 → <b>테크니컬 PD</b>로 직무 재정의</li>
-            <li>주요 업무, 필요 역량, 타겟 후보자, JD 문구, 전형 기준 직접 정리</li>
-            <li>공개 공고 외에 오픈채팅방·커피챗으로 직무 이해와 후보자 설득 보완</li>
-            <li><b>오픈채팅방 1명 + 잡코리아 공개 공고 1명 = 총 2명 입사</b></li>
-          </ul>
           <div class="project-tags">
             <span>신규 직무 정의</span>
             <span>JD 설계</span>
@@ -922,12 +936,29 @@
             <span>오픈채팅방 소싱</span>
             <span>총 2명 채용</span>
           </div>
+          <p class="case-lead">
+            내부 서비스와 제작 프로세스가 안정화되며 기존 웹툰 프롬프터 역할의 기대치가 달라졌고,
+            현업팀 인터뷰를 통해 주요 업무·필요 역량·타겟 후보자·전형 기준을 정리해 <b>테크니컬 PD</b> 포지션으로 재정의했습니다.
+          </p>
+          <ul>
+            <li>내부 서비스 개발과 제작 프로세스 안정화에 따라 기존 웹툰 프롬프터 역할의 변화 필요성 확인</li>
+            <li>현업팀 인터뷰를 통해 주요 업무, 필요 역량, 타겟 후보자, JD 문구, 전형 기준 정리</li>
+            <li>공개 공고 외에 오픈채팅방·커피챗으로 직무 이해와 후보자 설득 보완</li>
+            <li><b>오픈채팅방 1명 + 잡코리아 공개 공고 1명 = 총 2명 입사</b></li>
+          </ul>
         </article>
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Data · Channel Strategy</span>
             <h3>데이터 기반 채용 채널 분석</h3>
+          </div>
+
+          <div class="project-tags">
+            <span>채널별 유입 분석</span>
+            <span>유효 이력서 비율</span>
+            <span>잡코리아 집중</span>
+            <span>개발자 채널 재설계</span>
+            <span>설득형 채용 전략</span>
           </div>
           <p class="case-lead">
             채용 캠페인 운영 과정에서 채널별 유입과 유효 이력서 비율을 주차 단위로 분석해,
@@ -949,20 +980,19 @@
             <div class="dc-row"><span class="dc-label">언리얼 레벨</span><span class="dc-track"><span class="dc-fill" style="width:34%"></span></span><span class="dc-val">+212%</span></div>
             <div class="dc-note">단순 노출보다 후보자의 이해와 몰입을 높이는 채널·콘텐츠·커피챗 연결 전략이 필요하다는 인사이트를 도출했습니다.</div>
           </div>
-
-          <div class="project-tags">
-            <span>채널별 유입 분석</span>
-            <span>유효 이력서 비율</span>
-            <span>잡코리아 집중</span>
-            <span>개발자 채널 재설계</span>
-            <span>설득형 채용 전략</span>
-          </div>
         </article>
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Process · Data</span>
             <h3>개발자 채용 프로세스 개선</h3>
+          </div>
+
+          <div class="project-tags">
+            <span>개발자 상시 채용</span>
+            <span>과제 전형 도입</span>
+            <span>전형 병목 분석</span>
+            <span>코드 포트폴리오 검토</span>
+            <span>개발자 1명 입사</span>
           </div>
           <p class="case-lead">
             개발자 공채를 단기 운영한 뒤 개발 직군 채용을 상시 채용으로 이어갔습니다.
@@ -980,7 +1010,7 @@
           </ul>
 
           <details class="case-more">
-            <summary>가설 검증 및 개선안 보기</summary>
+            <summary>펼쳐보기 · 가설 검증 및 개선안</summary>
             <div class="case-more-body">
               <div class="detail-block">
                 <h4>문제</h4>
@@ -1013,8 +1043,8 @@
                 <h4>가설 3 · 과제 난이도 또는 범위 과도 → 기각</h4>
                 <ul>
                   <li>과제 대상 21명 중 19명이 제출해 <b>제출률 90.5%</b>, 중도 포기율 9.5% 확인</li>
-                  <li>탈락 사유는 과제 미완성이 아니라 시니어 기준의 구현 완성도, 테스트, 설계 이해도 미달에 가까웠음</li>
-                  <li><b>시사점:</b> 과제 난이도 자체보다 서류 변별력과 지원자 풀 미스매치가 핵심 원인이라고 판단</li>
+                  <li>탈락 사유는 과제 미완성이 아니라 구현 완성도, JPA 기본기, 트랜잭션 설계, 테스트 코드, 코드 동작 원리 이해 등 실무 기본기와 기대 수준의 차이에 가까웠음</li>
+                  <li><b>시사점:</b> 과제 난이도 자체보다 서류 변별력, 지원자 풀 미스매치, 실무 기본기 검증 방식이 핵심 원인이라고 판단</li>
                 </ul>
               </div>
 
@@ -1044,28 +1074,29 @@
               </p>
             </div>
           </details>
-
-          <div class="project-tags">
-            <span>개발자 상시 채용</span>
-            <span>과제 전형 도입</span>
-            <span>전형 병목 분석</span>
-            <span>코드 포트폴리오 검토</span>
-            <span>개발자 1명 입사</span>
-          </div>
         </article>
 
         <article class="case reveal">
           <div class="case-head">
-            <span class="case-tag">Hiring Bar · 하이어링 매니저 Collaboration</span>
             <h3>채용 평가 체계 설계 & 하이어링 매니저 협업</h3>
           </div>
+
+          <div class="project-tags">
+            <span>MUST·PLUS·RISK</span>
+            <span>하이어링 매니저 협업</span>
+            <span>1차 인터뷰 5건 적용</span>
+            <span>STAR 기반 논의</span>
+            <span>채용 기준 정렬</span>
+          </div>
           <p class="case-lead">
-            전사적으로 통일된 채용 기준이 없어 하이어링 매니저마다 판단 기준이 달라지는 문제를 발견했습니다.
-            이를 해결하기 위해 직군·연차에 공통 적용 가능한 MUST / PLUS / RISK 평가 기준을 설계하고,
-            1차 인터뷰 5건에 먼저 시범 적용했습니다.
+            하이어링 매니저마다 판단 기준이 달라지면 동일한 후보자도 다르게 평가될 수 있고,
+            합격·탈락 사유가 개인의 감각에 기대어 설명될 수 있습니다.
+            이는 후보자 경험과 내부 신뢰 모두에 영향을 줄 수 있다고 보았고,
+            이를 줄이기 위해 직군·연차에 공통 적용 가능한 MUST / PLUS / RISK 평가 기준을 정리해 1차 인터뷰 5건에 먼저 시범 적용했습니다.
           </p>
           <ul>
             <li>전사 통일 채용 기준 부재로 <b>하이어링 매니저별 평가 기준이 달라지는 문제</b> 확인</li>
+            <li>평가 기준이 흔들리면 후보자 경험과 내부 채용 신뢰도에 영향을 줄 수 있다고 판단</li>
             <li>직군·연차에 공통 적용 가능한 <b>MUST / PLUS / RISK 평가 프레임</b> 설계</li>
             <li>이력서 검토, 1차 인터뷰, 2차 컬처핏까지 확장 가능한 구조로 기획</li>
             <li>우선 <b>1차 인터뷰 5건</b>에 시범 적용</li>
@@ -1073,7 +1104,7 @@
           </ul>
 
           <details class="case-more">
-            <summary>MUST · PLUS · RISK 평가 기준 자세히 보기</summary>
+            <summary>펼쳐보기 · MUST · PLUS · RISK 평가 기준</summary>
             <div class="case-more-body">
               <div class="detail-block">
                 <h4>배경</h4>
@@ -1138,14 +1169,6 @@
               </p>
             </div>
           </details>
-
-          <div class="project-tags">
-            <span>MUST·PLUS·RISK</span>
-            <span>하이어링 매니저 협업</span>
-            <span>1차 인터뷰 5건 적용</span>
-            <span>STAR 기반 논의</span>
-            <span>채용 기준 정렬</span>
-          </div>
         </article>
 
       </div>
