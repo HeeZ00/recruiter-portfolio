@@ -450,6 +450,31 @@
       color:var(--accent);
     }
 
+    .case-links {
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+    .case-links a {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      font-size:.86rem;
+      font-weight:800;
+      color:var(--accent);
+      border:1px solid rgba(89,100,216,.24);
+      border-radius:999px;
+      background:rgba(231,228,255,.55);
+      padding:8px 13px;
+      transition:background .2s, transform .2s, border-color .2s;
+    }
+    .case-links a:hover {
+      background:rgba(231,228,255,.9);
+      border-color:rgba(89,100,216,.42);
+      transform:translateY(-1px);
+    }
+
     .dc-chart {
       margin-top:18px;
       padding-top:16px;
@@ -879,6 +904,100 @@
             </div>
           </details>
         </article>
+
+        <article class="case reveal">
+          <div class="case-head">
+            <h3>AI 채용 업무 어시스턴트</h3>
+          </div>
+
+          <div class="project-tags">
+            <span>AI 업무 구조화</span>
+            <span>JD 작성 보조</span>
+            <span>인터뷰 질문 설계</span>
+            <span>채용 운영 효율화</span>
+          </div>
+          <p class="case-lead">
+            채용 업무에서 반복적으로 발생하는 <b>리서치, JD 초안 작성, 인터뷰 질문 및 결과 정리, 소싱 메세지, 브랜딩 글</b>의 과정을 하나의 흐름으로 시스템화했습니다.
+            JD 작성처럼 정성이 필요한 업무는 AI가 대신 판단하는 것이 아니라, 채용 담당자가 더 좋은 판단을 할 수 있도록 필요한 정보를 빠르게 정리하는 방향으로 설계했습니다.
+          </p>
+
+          <div class="phase">
+            <span class="phase-label">STEP 1 · 문제 발견</span>
+            <ul>
+              <li>포지션마다 JD 레퍼런스 확인, 역할 정리, 인터뷰 질문 준비가 반복적으로 발생</li>
+              <li>내부에 충분한 레퍼런스가 없는 직무는 시장에서 기대하는 역할과 역량을 먼저 이해할 필요 확인</li>
+              <li>채용 담당자가 반복 정리에 쓰는 시간을 줄이고, 후보자 판단과 현업 커뮤니케이션에 더 집중할 필요 확인</li>
+            </ul>
+          </div>
+
+          <div class="phase">
+            <span class="phase-label">STEP 2 · 구조 설계</span>
+            <ul>
+              <li>채용 요청 → JD 레퍼런스 → JD 작성 → 인터뷰 질문 → 결과 논의 → 소싱 메세지 → 채용브랜딩 흐름으로 업무 단계 정의</li>
+              <li>각 단계에서 필요한 입력값과 결과물 형태를 정리해 기능 명세서로 구조화</li>
+              <li>시장 레퍼런스는 타사 JD를 따라 쓰기 위한 것이 아니라, 직무별 기대 역할과 역량을 이해하기 위한 기준으로 활용</li>
+            </ul>
+          </div>
+
+          <div class="phase">
+            <span class="phase-label">STEP 3 · 기대 결과</span>
+            <ul>
+              <li>채용 담당자가 매번 처음부터 다시 시작하지 않아도 되는 업무 구조 마련</li>
+              <li>JD 작성의 속도보다 <b>역할 정의와 후보자 설득력</b>을 유지하는 방향으로 AI 활용</li>
+              <li>반복 정리 시간을 줄이고, 최종 판단과 후보자 커뮤니케이션에 집중할 수 있는 기반 마련</li>
+            </ul>
+          </div>
+
+          <div class="phase">
+            <span class="phase-label">데모 구현</span>
+            <ul>
+              <li>업무 핵심 흐름을 확인하기 위한 형태로 구현</li>
+              <li>현재 데모는 기능 흐름을 설명하기 위해 제작되었으며, 실제 운영 단계에서는 LLM과 검색 API를 연동해 확장할 수 있도록 설계</li>
+            </ul>
+          </div>
+
+          <details class="case-more">
+            <summary>펼쳐보기 · 설계 의도 및 기능 구성</summary>
+            <div class="case-more-body">
+              <div class="detail-block">
+                <h4>자동화한 이유</h4>
+                <ul>
+                  <li>채용 업무를 더 가볍게 처리하기 위해서가 아니라, 반복 정리에 쓰이는 시간을 줄여 더 중요한 판단에 집중하기 위해 설계</li>
+                  <li>JD 작성처럼 정성이 필요한 업무는 AI가 대신 결정하는 것이 아니라, 시장 기준과 회사 맥락을 함께 정리하는 보조 도구로 활용</li>
+                  <li>채용 담당자가 현업팀과 후보자 사이에서 더 명확한 기준과 언어로 커뮤니케이션할 수 있도록 구조화</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>기능 흐름</h4>
+                <div class="process-flow">
+                  채용 요청 → JD 레퍼런스 → JD 작성 → 인터뷰 질문 → 결과 논의 → 소싱 메세지 → 채용브랜딩
+                </div>
+              </div>
+
+              <div class="detail-block">
+                <h4>설계 포인트</h4>
+                <ul>
+                  <li><b>시장 레퍼런스 확인:</b> 직무별 기대 역할과 역량 파악</li>
+                  <li><b>JD 작성:</b> 우리 회사의 성장 단계와 실제 필요에 맞게 재해석</li>
+                  <li><b>인터뷰 질문:</b> JD와 후보자 이력서를 연결해 확인할 역량 중심으로 구성</li>
+                  <li><b>결과 논의:</b> 면접관 피드백을 강점·우려·추가 확인 사항으로 정리</li>
+                </ul>
+              </div>
+
+              <div class="detail-block">
+                <h4>LLM/API 연동 범위</h4>
+                <p>현재 데모는 기능 흐름을 설명하기 위해 제작되었습니다. 실제 운영 단계에서는 LLM과 검색 API를 연동해 확장할 수 있도록 설계했습니다.</p>
+              </div>
+
+            </div>
+          </details>
+
+          <div class="case-links">
+            <a href="https://recruiting-bot-demo.onrender.com" target="_blank" rel="noopener">데모 보기 →</a>
+          </div>
+        </article>
+
 
         <article class="case reveal">
           <div class="case-head">
